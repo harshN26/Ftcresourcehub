@@ -77,7 +77,10 @@ const viewableTags = [
 
 
     //vendors:
-    "vendors"
+    "vendors",
+
+    //discord
+    "discord invite"
 
 ];
 
@@ -105,7 +108,8 @@ const defaultSectionOrder = [
     "vision",
     "strategy",
     "vendors",
-    "team made"
+    "team made",
+    "discord invite"
 ];
 
 const resources = [
