@@ -1,4 +1,3 @@
-// Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
 import { getFirestore, doc, setDoc, increment } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
 
@@ -16,7 +15,6 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-// ⬇️ Your rendering logic (add this inside your renderPost or wherever you create the links)
 async function trackClick(title) {
     try {
         const docRef = doc(db, "ClickCounter", title);
