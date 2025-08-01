@@ -7,15 +7,7 @@ import { getFirestore, doc, setDoc, increment } from "https://www.gstatic.com/fi
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-    apiKey: "AIzaSyBS5tt47kdVKZbX-5TToaGFKbSoTKTl1b4",
-    authDomain: "ftcresourcelocator.firebaseapp.com",
-    projectId: "ftcresourcelocator",
-    storageBucket: "ftcresourcelocator.firebasestorage.app",
-    messagingSenderId: "211095332815",
-    appId: "1:211095332815:web:780d94aee93195ba1494ba",
-    measurementId: "G-5816VQRNK9"
-};
+
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
