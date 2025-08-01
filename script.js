@@ -1,3 +1,39 @@
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
+import { getFirestore, doc, setDoc, increment } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
+
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+    apiKey: "AIzaSyBS5tt47kdVKZbX-5TToaGFKbSoTKTl1b4",
+    authDomain: "ftcresourcelocator.firebaseapp.com",
+    projectId: "ftcresourcelocator",
+    storageBucket: "ftcresourcelocator.firebasestorage.app",
+    messagingSenderId: "211095332815",
+    appId: "1:211095332815:web:780d94aee93195ba1494ba",
+    measurementId: "G-5816VQRNK9"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+// ⬇️ Your rendering logic (add this inside your renderPost or wherever you create the links)
+async function trackClick(title) {
+    try {
+        const docRef = doc(db, "ClickCounter", title);
+        await setDoc(docRef, { click: increment(1) }, { merge: true });
+        await setDoc(doc(db, "ClickCounter", "totalClicks"), { click: increment(1) }, { merge: true });
+        console.log(`Click tracked for "${title}"`);
+    } catch (error) {
+        console.error("Error tracking click:", error);
+    }
+}
+
+
 /** List of all tags that create sections */
 const viewableTags = [
     "everything",
@@ -122,7 +158,7 @@ const resources = [
     {
         title: "FTC docs",
         description: "Guide to get started with FTC concepts",
-        links: [{ label: "FTCDocs", url: "https://ftc-docs.firstinspires.org/en/latest/" }],
+        links: [{ label: "FTC Docs", url: "https://ftc-docs.firstinspires.org/en/latest/" }],
         tags: ["everything"]
     },
     {
@@ -226,6 +262,12 @@ function renderPost(post) {
         link.href = linkObj.url;
         link.target = "_blank";
         link.textContent = linkObj.label;
+
+        //  Track clicks
+        link.addEventListener("click", () => {
+            trackClick(post.title);
+        });
+
         linksContainer.appendChild(link);
     });
 
