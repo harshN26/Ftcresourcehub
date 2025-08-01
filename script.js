@@ -2,6 +2,17 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
 import { getFirestore, doc, setDoc, increment } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
 
+const firebaseConfig = {
+    apiKey: "AIzaSyBS5tt47kdVKZbX-5TToaGFKbSoTKTl1b4",
+    authDomain: "ftcresourcelocator.firebaseapp.com",
+    projectId: "ftcresourcelocator",
+    storageBucket: "ftcresourcelocator.firebasestorage.app",
+    messagingSenderId: "211095332815",
+    appId: "1:211095332815:web:b0462a3ec6ae4b831494ba",
+    measurementId: "G-JF56S8TMN9"
+};
+
+// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
