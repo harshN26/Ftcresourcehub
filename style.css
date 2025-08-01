@@ -131,3 +131,26 @@ input[type="text"] {
     font-size: 0.8rem;
     user-select: none;
 }
+
+.form-banner {
+    background: #2b2c31;
+    border-radius: 10px;
+    max-width: 960px;
+    margin: 2rem auto;
+    padding: 1rem 1.5rem;
+    text-align: center;
+    box-shadow: 0 0 6px #00000033;
+    font-size: 1.05rem;
+}
+
+.form-banner a {
+    color: #58a6ff;
+    text-decoration: none;
+    font-weight: bold;
+    margin-left: 0.4rem;
+    transition: color 0.2s ease;
+}
+
+.form-banner a:hover {
+    color: #ffffff;
+}
